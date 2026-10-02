@@ -10,6 +10,8 @@ A simple real-time face detection project built with Python and OpenCV.
 - Applies contrast enhancement plus merged detections for better robustness
 - Uses configurable thresholds for smoother real-time performance
 - Displays live face count and FPS
+- Accepts a webcam index or a video file as input
+- Saves an annotated detection snapshot when you press `S`
 
 ## Project Structure
 
@@ -48,7 +50,15 @@ pip install -r requirements.txt
 python src\app.py
 ```
 
-Press `Q` to close the webcam window.
+Use a different camera index or process a video file with `--source`:
+
+```powershell
+python src\app.py --source 1
+python src\app.py --source "videos\sample.mp4"
+```
+
+Press `S` to save the current annotated frame under `snapshots/` (or choose a
+different directory with `--snapshot-dir`). Press `Q` to close the window.
 
 ## Resume Description
 
@@ -62,4 +72,3 @@ Press `Q` to close the webcam window.
 - Replace Haar cascades with a DNN-based detector for better accuracy
 - Add face recognition on top of detection
 - Save snapshots when faces are detected
-- Support video-file input in addition to webcam input
